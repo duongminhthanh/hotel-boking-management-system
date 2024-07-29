@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDate;
 
@@ -24,11 +25,11 @@ public class Booking {
     private Long id;
 
     @NotNull(message = "check in date is required")
-    @UpdateTimestamp
+    @CreatedDate
     private LocalDate checkInDate;
 
     @Future(message = "check out date must be in the future")
-    @UpdateTimestamp
+    @CreatedDate
     private LocalDate checkOutDate;
 
     @Min(value = 1, message = "Number of adults must not be less that 1")
